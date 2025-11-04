@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clasificador de Planetas Kepler 🚀</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <script defer src="/JS/script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+  <nav class="barra-nav">
+    <li><a href="/index.html">Predecir</a></li>
+    <li><a href="/info.html">Información</a></li>
+  </nav>
+
+  <div class="container">
+    <h1>🌌 ExoKeplerAlly 🌌</h1>
+    <p>Introduce los valores de las características y descubre si el objeto es un planeta o no.</p>
+
+    <form id="formulario">
+      <div id="inputs"></div>
+      <button type="button" id="btnPredict">Predecir</button>
+    </form>
+
+    <div id="resultado">Esperando datos...</div>
+  </div>
+</body>
+</html>

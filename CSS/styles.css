@@ -5,22 +5,106 @@ body {
   font-family: "Poppins", sans-serif;
   background: radial-gradient(circle at top, #0a0f23 0%, #020409 100%);
   color: #fff;
-  height: 100vh;
-  overflow-y: auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-self: center;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* === Contenedor general === */
+
+.barra-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(2,14,59,0.95);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  padding: 0.8rem 0;
+  box-shadow: 0 4px 20px rgba(0,200,255,0.15);
+}
+
+.barra-nav ul {
+  display:flex;
+  gap:2rem;
+  justify-content:center;
+  align-items:center;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.barra-nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1.05rem;
+}
+
+
+/* === NAV siempre visible === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(2, 14, 59, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 0;
+  z-index: 9999;
+  box-shadow: 0 4px 20px rgba(0, 200, 255, 0.15);
+}
+
+/* === Elementos dentro del NAV === */
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* ✨ efecto de “luz de estrella” */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00e0ff, #6ae3ff);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover {
+  color: #6ae3ff;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* === Contenedor principal === */
 .container {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
   padding: 2rem;
   border-radius: 16px;
-  margin-top: 3rem;
+  margin: 6rem auto 3rem; /* espacio para el nav */
   width: 90%;
   max-width: 600px;
   box-shadow: 0 0 25px rgba(0, 200, 255, 0.2);
@@ -50,7 +134,7 @@ label {
 
 input {
   width: 100%;
-  padding: 0.4rem 0.6rem;
+  padding: 0.5rem 0.6rem;
   border: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
@@ -68,12 +152,12 @@ button {
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
   transform: scale(1.05);
-  background: linear-gradient(90deg, #00e0ff, #0077ff);
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.6);
 }
 
 /* === Resultado === */
@@ -84,97 +168,73 @@ button:hover {
   color: #9df0ff;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  background-color: #020e3b;
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-  color:white
-}
-
-li {
-  list-style: none;
-  margin-left: 4rem;
-  font-weight: 600;
-}
-
-a:hover {
-  color: #6ae3ff;
-}
-
-/* === Para pantallas grandes (tablets y móviles grandes) === */
+/* === Ajustes para pantallas medianas === */
 @media (max-width: 900px) {
-
-  body {
-    width: 100%;;
-  }
   .container {
-    padding: 1.8rem 2rem; /* un poco más aire */
+    margin-top: 6rem;
+    padding: 1.8rem 2rem;
   }
 
-  h1 {
-    padding: 0.3rem 0.4rem;
+  nav ul {
+    gap: 1.5rem;
   }
 
-  label, p, #resultado {
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-  }
-
-  input, button {
-    margin-top: 0.3rem;
-    margin-bottom: 0.5rem;
+  nav a {
+    font-size: 1rem;
   }
 }
 
 /* === Para móviles medianos (POCO X7 Pro, X3 GT, etc.) === */
 @media (max-width: 600px) {
-    body {
-    width: 100%;;
+  nav {
+    flex-direction: column;
+    padding: 1rem 0.2rem;
   }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+  }
+
   .container {
-    padding: 1.5rem 1.6rem;
+    width: 94%;
+    margin-top: 8rem;
+    padding: 1.5rem;
   }
 
   h1 {
-    padding: 0.25rem 0.3rem;
-  }
-
-  label, p, #resultado {
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
+    font-size: 2rem;
   }
 
   input, button {
-    margin-top: 0.25rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.2rem;
+  }
+
+  #resultado {
+    font-size: 1.4rem;
   }
 }
 
-/* === Para pantallas muy pequeñas (<400px) === */
+/* === Para pantallas pequeñas (<400px) === */
 @media (max-width: 400px) {
-    body {
-    width: 100%;;
+  nav a {
+    font-size: 1rem;
   }
+
   .container {
-    padding: 1.2rem 1.3rem;
+    margin-top: 9rem;
+    padding: 1rem;
   }
 
   h1 {
-    padding: 0.2rem 0.3rem;
-  }
-
-  label, p, #resultado {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
+    font-size: 1.6rem;
   }
 
   input, button {
-    margin-top: 0.2rem;
-    margin-bottom: 0.3rem;
+    font-size: 1rem;
   }
 }

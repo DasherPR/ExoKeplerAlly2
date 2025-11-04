@@ -1,0 +1,180 @@
+/* === Reset básico === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #0a0f23 0%, #020409 100%);
+  color: #fff;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-self: center;
+}
+
+/* === Contenedor general === */
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-top: 3rem;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.2);
+}
+
+/* === Título === */
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #6ae3ff;
+}
+
+/* === Formulario === */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;  
+}
+
+/* === Inputs y etiquetas === */
+label {
+  font-weight: 500;
+  margin-top: 0.4rem;
+  color: #b5e9ff;
+}
+
+input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+}
+
+/* === Botón === */
+button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0077ff, #00e0ff);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #00e0ff, #0077ff);
+}
+
+/* === Resultado === */
+#resultado {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #9df0ff;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: #020e3b;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color:white
+}
+
+li {
+  list-style: none;
+  margin-left: 4rem;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #6ae3ff;
+}
+
+/* === Para pantallas grandes (tablets y móviles grandes) === */
+@media (max-width: 900px) {
+
+  body {
+    width: 100%;;
+  }
+  .container {
+    padding: 1.8rem 2rem; /* un poco más aire */
+  }
+
+  h1 {
+    padding: 0.3rem 0.4rem;
+  }
+
+  label, p, #resultado {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+
+  input, button {
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* === Para móviles medianos (POCO X7 Pro, X3 GT, etc.) === */
+@media (max-width: 600px) {
+    body {
+    width: 100%;;
+  }
+  .container {
+    padding: 1.5rem 1.6rem;
+  }
+
+  h1 {
+    padding: 0.25rem 0.3rem;
+  }
+
+  label, p, #resultado {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+
+  input, button {
+    margin-top: 0.25rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+/* === Para pantallas muy pequeñas (<400px) === */
+@media (max-width: 400px) {
+    body {
+    width: 100%;;
+  }
+  .container {
+    padding: 1.2rem 1.3rem;
+  }
+
+  h1 {
+    padding: 0.2rem 0.3rem;
+  }
+
+  label, p, #resultado {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  input, button {
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+  }
+}
